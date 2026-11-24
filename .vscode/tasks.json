@@ -1,0 +1,27 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run online boutique",
+			"type": "shell",
+			"command": "npm run dev",
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Run Umber API",
+			"type": "shell",
+			"command": "npm run api:dev",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Install API workspace dependencies",
+			"type": "shell",
+			"command": "npm install",
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}

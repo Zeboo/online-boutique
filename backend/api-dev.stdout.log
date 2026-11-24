@@ -1,0 +1,71 @@
+
+> @umber-collection/api@1.0.0 start:dev
+> nest start --watch
+
+[2J[3J[H[[90m8:06:14 AM[0m] Starting compilation in watch mode...
+
+[[90m8:06:21 AM[0m] Found 0 errors. Watching for file changes.
+
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [NestFactory] Starting Nest application...
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [InstanceLoader] PrismaModule dependencies initialized +33ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [InstanceLoader] ThrottlerModule dependencies initialized +5ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [InstanceLoader] AppModule dependencies initialized +10ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [InstanceLoader] AdminModule dependencies initialized +1ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [InstanceLoader] AuthModule dependencies initialized +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [InstanceLoader] CatalogModule dependencies initialized +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [InstanceLoader] CmsModule dependencies initialized +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [InstanceLoader] OrdersModule dependencies initialized +1ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [InstanceLoader] PaymentsModule dependencies initialized +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RoutesResolver] HealthController {/api/v1/health}: +51ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/health, GET} route +3ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RoutesResolver] AuthController {/api/v1/auth}: +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/auth/register, POST} route +1ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/auth/login, POST} route +1ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/auth/logout, POST} route +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/auth/me, GET} route +1ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RoutesResolver] CatalogController {/api/v1}: +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/categories, GET} route +1ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/categories/:slug, GET} route +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/products/featured, GET} route +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/products, GET} route +1ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/products/:slug, GET} route +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RoutesResolver] AdminCatalogController {/api/v1/admin/catalog}: +1ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/admin/catalog/categories, GET} route +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/admin/catalog/categories, POST} route +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/admin/catalog/categories/:id, PATCH} route +1ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/admin/catalog/categories/:id, DELETE} route +1ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/admin/catalog/products, GET} route +1ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/admin/catalog/products, POST} route +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/admin/catalog/uploads/product-image, POST} route +1ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/admin/catalog/products/:id, PATCH} route +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/admin/catalog/products/:id, DELETE} route +1ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RoutesResolver] CmsController {/api/v1/cms}: +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/cms/banners, GET} route +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/cms/pages, GET} route +1ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/cms/pages/:slug, GET} route +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RoutesResolver] AdminCmsController {/api/v1/admin/cms}: +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/admin/cms/banners, GET} route +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/admin/cms/banners, POST} route +1ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/admin/cms/banners/:id, PATCH} route +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/admin/cms/banners/:id, DELETE} route +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/admin/cms/pages, GET} route +1ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/admin/cms/pages, POST} route +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/admin/cms/pages/:id, PATCH} route +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/admin/cms/pages/:id, DELETE} route +1ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RoutesResolver] AdminController {/api/v1/admin}: +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/admin/dashboard, GET} route +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RoutesResolver] OrdersController {/api/v1/orders}: +1ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/orders, POST} route +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/orders, GET} route +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/orders/:orderNumber, GET} route +1ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RoutesResolver] AdminOrdersController {/api/v1/admin/orders}: +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/admin/orders, GET} route +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/admin/orders/:id/status, PATCH} route +1ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RoutesResolver] PaymentsController {/api/v1/payments}: +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/payments/stripe/checkout, POST} route +0ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [RouterExplorer] Mapped {/api/v1/payments/stripe/webhook, POST} route +1ms
+[Nest] 12496  - 11/20/2026, 8:06:26 AM     LOG [NestApplication] Nest application successfully started +218ms
+[2J[3J[H[[90m8:20:10 AM[0m] File change detected. Starting incremental compilation...
+
+[2J[3J[H[[90m8:30:08 AM[0m] File change detected. Starting incremental compilation...
+

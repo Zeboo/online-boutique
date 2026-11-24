@@ -1,0 +1,193 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  CUSTOMER
+  ADMIN
+  MANAGER
+  CONTENT_MANAGER
+}
+
+enum UserStatus {
+  ACTIVE
+  DISABLED
+}
+
+enum Audience {
+  GENTS
+  LADIES
+  KIDS
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}
+
+enum PaymentMethod {
+  CASH_ON_DELIVERY
+  CARD
+}
+
+enum PaymentStatus {
+  UNPAID
+  PAID
+}
+
+model User {
+  id           String       @id @default(uuid()) @db.Uuid
+  name         String       @db.VarChar(120)
+  email        String       @unique @db.VarChar(254)
+  passwordHash String       @db.VarChar(255)
+  role         UserRole     @default(CUSTOMER)
+  status       UserStatus   @default(ACTIVE)
+  sessions     Session[]
+  orders       Order[]
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  @@index([role, status])
+}
+
+model Session {
+  id        String   @id @default(uuid()) @db.Uuid
+  tokenHash String   @unique @db.VarChar(64)
+  userId    String   @db.Uuid
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, expiresAt])
+  @@index([expiresAt])
+}
+
+model Category {
+  id          String   @id @default(uuid()) @db.Uuid
+  name        String   @db.VarChar(80)
+  slug        String   @unique @db.VarChar(100)
+  description String?  @db.VarChar(500)
+  imageUrl    String?  @db.VarChar(2048)
+  isActive    Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  products    Product[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([isActive, sortOrder])
+}
+
+model Product {
+  id             String   @id @default(uuid()) @db.Uuid
+  name           String   @db.VarChar(180)
+  slug           String   @unique @db.VarChar(200)
+  description    String   @db.Text
+  sku            String?  @unique @db.VarChar(80)
+  price          Decimal  @db.Decimal(10, 2)
+  compareAtPrice Decimal? @db.Decimal(10, 2)
+  currency       String   @default("USD") @db.Char(3)
+  imageUrl       String   @db.VarChar(2048)
+  color          String?  @db.VarChar(80)
+  sizes          String[] @default([])
+  stock          Int      @default(0)
+  isActive       Boolean  @default(false)
+  isFeatured     Boolean  @default(false)
+  audience       Audience @default(GENTS)
+  categoryId     String   @db.Uuid
+  category       Category @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  orderItems     OrderItem[]
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([categoryId, isActive])
+  @@index([audience, isActive])
+  @@index([isFeatured, isActive])
+  @@index([name])
+}
+
+model Banner {
+  id        String   @id @default(uuid()) @db.Uuid
+  eyebrow   String   @db.VarChar(100)
+  heading   String   @db.VarChar(180)
+  body      String   @db.VarChar(500)
+  imageUrl  String   @db.VarChar(2048)
+  href      String   @default("/shop") @db.VarChar(500)
+  isActive  Boolean  @default(false)
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([isActive, sortOrder])
+}
+
+model ContentPage {
+  id          String   @id @default(uuid()) @db.Uuid
+  slug        String   @unique @db.VarChar(150)
+  title       String   @db.VarChar(180)
+  content     String   @db.Text
+  metaTitle   String?  @db.VarChar(180)
+  metaDescription String? @db.VarChar(320)
+  isPublished Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([isPublished, updatedAt])
+}
+
+model Order {
+  id              String        @id @default(uuid()) @db.Uuid
+  orderNumber     String        @unique @db.VarChar(40)
+  userId          String        @db.Uuid
+  email           String        @db.VarChar(254)
+  recipientName   String        @db.VarChar(160)
+  phone           String        @db.VarChar(40)
+  addressLine1    String        @db.VarChar(240)
+  addressLine2    String?       @db.VarChar(240)
+  city            String        @db.VarChar(120)
+  region          String        @db.VarChar(120)
+  postalCode      String        @db.VarChar(32)
+  country         String        @db.VarChar(2)
+  status          OrderStatus   @default(PENDING)
+  paymentMethod   PaymentMethod @default(CASH_ON_DELIVERY)
+  paymentStatus   PaymentStatus @default(UNPAID)
+  stripeSessionId String?       @unique @db.VarChar(255)
+  trackingCode    String?       @db.VarChar(120)
+  shippingCarrier String?       @db.VarChar(40)
+  subtotal        Decimal       @db.Decimal(10, 2)
+  shipping        Decimal       @db.Decimal(10, 2)
+  total           Decimal       @db.Decimal(10, 2)
+  currency        String        @default("USD") @db.Char(3)
+  items           OrderItem[]
+  user            User          @relation(fields: [userId], references: [id], onDelete: Restrict)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  @@index([userId, createdAt])
+  @@index([status, createdAt])
+}
+
+model OrderItem {
+  id          String   @id @default(uuid()) @db.Uuid
+  orderId     String   @db.Uuid
+  productId   String   @db.Uuid
+  productName String   @db.VarChar(180)
+  imageUrl    String   @db.VarChar(2048)
+  sku         String?  @db.VarChar(80)
+  size        String   @db.VarChar(20)
+  quantity    Int
+  unitPrice   Decimal  @db.Decimal(10, 2)
+  lineTotal   Decimal  @db.Decimal(10, 2)
+  order       Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Restrict)
+
+  @@index([orderId])
+}

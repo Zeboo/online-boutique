@@ -1,0 +1,73 @@
+'taskkill' is not recognized as an internal or external command,
+operable program or batch file.
+'taskkill' is not recognized as an internal or external command,
+operable program or batch file.
+node:child_process:1000
+    throw err;
+    ^
+
+Error: Command failed: taskkill /pid 10156 /T /F
+'taskkill' is not recognized as an internal or external command,
+operable program or batch file.
+
+    at genericNodeError (node:internal/errors:985:15)
+    at wrappedFn (node:internal/errors:539:14)
+    at checkExecSyncError (node:child_process:925:11)
+    at execSync (node:child_process:997:15)
+    at treeKillSync (C:\Users\Hp\online-boutique\node_modules\@nestjs\cli\lib\utils\tree-kill.js:7:38)
+    at C:\Users\Hp\online-boutique\node_modules\@nestjs\cli\actions\start.action.js:92:46
+    at Object.onWatchStatusChange (C:\Users\Hp\online-boutique\node_modules\@nestjs\cli\lib\compiler\watch-compiler.js:82:17)
+    at C:\Users\Hp\online-boutique\node_modules\typescript\lib\typescript.js:133916:30
+    at emitFilesAndReportErrors (C:\Users\Hp\online-boutique\node_modules\typescript\lib\typescript.js:133737:5)
+    at result.afterProgramCreate (C:\Users\Hp\online-boutique\node_modules\typescript\lib\typescript.js:133912:5) {
+  status: 1,
+  signal: null,
+  output: [
+    null,
+    Buffer(0) [Uint8Array] [],
+    Buffer(99) [Uint8Array] [
+       39, 116,  97, 115, 107, 107, 105, 108, 108,  39,  32, 105,
+      115,  32, 110, 111, 116,  32, 114, 101,  99, 111, 103, 110,
+      105, 122, 101, 100,  32,  97, 115,  32,  97, 110,  32, 105,
+      110, 116, 101, 114, 110,  97, 108,  32, 111, 114,  32, 101,
+      120, 116, 101, 114, 110,  97, 108,  32,  99, 111, 109, 109,
+       97, 110, 100,  44,  13,  10, 111, 112, 101, 114,  97,  98,
+      108, 101,  32, 112, 114, 111, 103, 114,  97, 109,  32, 111,
+      114,  32,  98,  97, 116,  99, 104,  32, 102, 105, 108, 101,
+       46,  13,  10
+    ]
+  ],
+  pid: 7184,
+  stdout: Buffer(0) [Uint8Array] [],
+  stderr: Buffer(99) [Uint8Array] [
+     39, 116,  97, 115, 107, 107, 105, 108, 108,  39,  32, 105,
+    115,  32, 110, 111, 116,  32, 114, 101,  99, 111, 103, 110,
+    105, 122, 101, 100,  32,  97, 115,  32,  97, 110,  32, 105,
+    110, 116, 101, 114, 110,  97, 108,  32, 111, 114,  32, 101,
+    120, 116, 101, 114, 110,  97, 108,  32,  99, 111, 109, 109,
+     97, 110, 100,  44,  13,  10, 111, 112, 101, 114,  97,  98,
+    108, 101,  32, 112, 114, 111, 103, 114,  97, 109,  32, 111,
+    114,  32,  98,  97, 116,  99, 104,  32, 102, 105, 108, 101,
+     46,  13,  10
+  ]
+}
+
+Node.js v24.15.0
+npm error Lifecycle script `start:dev` failed with error:
+npm error code 1
+npm error path C:\Users\Hp\online-boutique\backend
+npm error workspace @umber-collection/api@1.0.0
+npm error location C:\Users\Hp\online-boutique\backend
+npm error command failed
+npm error command C:\Windows\system32\cmd.exe /d /s /c nest start --watch
+[Nest] 12496  - 11/20/2026, 9:47:30 AM   ERROR [PaymentsService] Stripe checkout session creation failed
+Error: An error occurred with our connection to Stripe. Request was retried 2 times.
+    at RequestSender._generateConnectionError (C:\Users\Hp\online-boutique\node_modules\stripe\src\RequestSender.ts:312:12)
+    at <anonymous> (C:\Users\Hp\online-boutique\node_modules\stripe\src\RequestSender.ts:790:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+Originating from:
+    at SessionResource._makeRequest (C:\Users\Hp\online-boutique\node_modules\stripe\src\StripeResource.ts:108:27)
+    at SessionResource.create (C:\Users\Hp\online-boutique\node_modules\stripe\src\resources\Checkout\Sessions.ts:139:17)
+    at PaymentsService.createCheckout (C:\Users\Hp\online-boutique\backend\src\payments\payments.service.ts:66:53)
+    at async C:\Users\Hp\online-boutique\node_modules\@nestjs\core\router\router-execution-context.js:81:62
+    at async C:\Users\Hp\online-boutique\node_modules\@nestjs\core\router\router-proxy.js:9:17
